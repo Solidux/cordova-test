@@ -9,7 +9,14 @@ var app = {
         app.receivedEvent('deviceready');
     },
     receivedEvent: function(id) {
-		var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=no');
+		var ref;
+		var devicePlatform = device.platform;
+		if(devicePlatform.toLocaleLowerCase() === 'android')
+			ref = cordova.InAppBrowser.open('http://apache.org', '_self', 'location=no,hardwareback=no');
+		else if(devicePlatform.toLocaleLowerCase() === 'ios')
+			ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=no');
+		else
+			ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=no');
 		ref.addEventListener('exit', function(event) { navigator.app.exitApp(); });
     }
 };
