@@ -9,6 +9,7 @@
     </author>
 	<plugin name="cordova-plugin-inappbrowser" spec="1.0.1" source="pgb" />
 	<icon src="icon.png" />
+	<preference name="permissions" value="none"/>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <access origin="*" />
@@ -25,14 +26,5 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-	<widget xmlns="http://www.w3.org/ns/widgets"
-			xmlns:gap="http://phonegap.com/ns/1.0"
-			xmlns:android="http://schemas.android.com/apk/res/android"
-			id="sv.com.chuckle.app.ios.Itest"
-			version="0.0.2">
-		<config-file platform="android" parent="/manifest" mode="merge">
-			<uses-permission android:name="android.permission.INTERNET"/>
-		</config-file>
-	</widget>	
 </widget>
 		
