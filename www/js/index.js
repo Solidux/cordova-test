@@ -10,14 +10,18 @@ var app = {
     },
     receivedEvent: function(id) {
 		var ref;
+		var urlFlor = 'http://docenteslalibertad.net/flor';
 		var devicePlatform = device.platform;
 		if(devicePlatform.toLocaleLowerCase() === 'android')
-			ref = cordova.InAppBrowser.open('http://apache.org', '_self', 'location=no,hardwareback=no');
+			ref = cordova.InAppBrowser.open(urlFlor, '_blank', 'location=no,hardwareback=no,clearcache=yes');
 		else if(devicePlatform.toLocaleLowerCase() === 'ios')
-			ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=no');
+			ref = cordova.InAppBrowser.open(urlFlor, '_blank', 'location=no,clearcache=yes');
 		else
-			ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=no');
-		ref.addEventListener('exit', function(event) { navigator.app.exitApp(); });
+			ref = cordova.InAppBrowser.open(urlFlor, '_blank', 'location=no');
+		
+		ref.addEventListener('exit', function(event) {
+			navigator.app.exitApp(); 
+		});
     }
 };
 
